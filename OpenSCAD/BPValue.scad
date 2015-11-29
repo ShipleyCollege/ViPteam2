@@ -5,12 +5,12 @@ use <brailleAndText.scad>;
 // ----------------------------------------------------- //
 module printValue(txt) {
 
-    bedHeight = 7;
+    bedHeight = 5;
     baseWidth = 6 + len(txt) * 6.25;
     baseDepth = 14;    
     
     difference() {
-        translate([0, 3, 3]) {
+        translate([0, 3, 1]) {
             printTextAndBraille(txt); 
         }       
         translate([baseDepth / 2, baseWidth - 5, 0]) {

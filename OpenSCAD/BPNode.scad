@@ -1,4 +1,5 @@
 use <brailleAndText.scad>;
+use <Pin.scad>;
 
 // These are to be overridden in the generated file
 // ... they are used to calculate size of base.
@@ -6,14 +7,14 @@ numLines = 5;
 longestLine = "abcdefghijk";
 
 // Thickness of base
-bedHeight = 4;
+bedHeight = 0.6;      // was 4
 // Thickness of top section
-reliefHeight = 6;
+reliefHeight = 1.5;   // was 6
 // Height of pins
-pinHeight = 7;
+pinHeight = 7;      // was 7
 
 // size of base
-baseWidth = 40 + len(longestLine) * 6.25;
+baseWidth = 35 + len(longestLine) * 6.25;   // was 40
 //baseWidth = 100;
 baseDepth = (numLines - 1) * 20 + 15;
 // depth of top section
@@ -80,18 +81,6 @@ module executePinRightWithText(px, text) {
     printText(px, right - y, text);    
 }
 
-// ----------------------------------------------------- //
-// Draw a cylinder and drill a hole in it                //
-// ----------------------------------------------------- //
-module pin(px, py, textValue) {
-    translate([px, py, 0]) {
-        difference() {
-            cylinder(h=pinHeight, r=2.5, $fn=16);
-            translate([2, 2, 1]);
-                cylinder(h=pinHeight, r1=0.5, r2=0.75, $fn=16);
-        }
-    }   
-}
 
 // ----------------------------------------------------- //
 // Call module from 'brailleAndText' library to draw     //
@@ -107,7 +96,7 @@ module printText(px, py, textValue) {
 // Call modules to draw pin and text on the left         //
 // ----------------------------------------------------- //
 module leftPin(line, text) {   
-    pin(line, left, text);
+    pin(line, left, 0);
     printText(line, left, text);
 }
 
@@ -116,7 +105,7 @@ module leftPin(line, text) {
 // ----------------------------------------------------- //
 module rightPin(line, text) {
     y = lenText(text) + 20 ;  
-    pin(line, right, text);
+    pin(line, right, 0);
     printText(line, right - y, text);
 }
 
