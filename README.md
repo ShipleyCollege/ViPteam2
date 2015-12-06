@@ -1,12 +1,11 @@
 # team2
 Merge model data with OpenSCAD templates to create 3D models
 
+To date there are the following templates available;
 
-The contents of the BPNodes and BPValues folders are run by OpenSCAD to build a 3D model.
 
-Each of these files refer to the templates which are in the OpenSCAD folder.
-
-The templates, and the functions they expose, are as follows;
+<h1>Unreal Engine 4 Blueprint nodes:</h1>
+These nodes can be created by hand or by the Python script developed by team1. This script builds the models from the Blueprint editors clipboard.
 
 BPValue - This template is used to create a 3D model containing text on one side and Braille on the other.
 - printValue(text);   // this will print the text parameter as Braille and text.
@@ -26,3 +25,27 @@ BPNode - This template is used to create 3D model of a Blueprint node from Unrea
 ** TO DO **
 
 New template for BPVariable, which will copy the shape of a variable node in Blueprint.
+
+
+Flowchart Nodes:
+These nodes can be created by hand or by exporting a flowchart from LucidChart.
+
+FCProcess - This will create a process box.
+
+FCDecision - This will create a decision diamond.
+
+
+Hour Of Code Nodes:
+These nodes are for 2015 Hour of Code - StarWars activity, tasks 1 to 6.
+
+board - Create an 8 x 8 board for the activity
+testTest - this will create a 2 x 2 test board
+tile - create one tile
+cog - create a cog, to represent scrap metal
+cross - create a cross, to represent bandits
+boxes - create a pile of boxes, to represent items that block your way
+event - create an event scratch node, with text and braille
+Action - create an action scratch node, with text and braille
+
+
+
