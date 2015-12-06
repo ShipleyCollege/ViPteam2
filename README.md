@@ -27,7 +27,7 @@ BPNode - This template is used to create 3D model of a Blueprint node from Unrea
 New template for BPVariable, which will copy the shape of a variable node in Blueprint.
 
 
-Flowchart Nodes:
+<h1>Flowchart Nodes:</h1>
 These nodes can be created by hand or by exporting a flowchart from LucidChart.
 
 FCProcess - This will create a process box.
@@ -35,17 +35,29 @@ FCProcess - This will create a process box.
 FCDecision - This will create a decision diamond.
 
 
-Hour Of Code Nodes:
+<h1>Hour Of Code Nodes:</h1>
 These nodes are for 2015 Hour of Code - StarWars activity, tasks 1 to 6.
 
-board - Create an 8 x 8 board for the activity
-testTest - this will create a 2 x 2 test board
-tile - create one tile
-cog - create a cog, to represent scrap metal
-cross - create a cross, to represent bandits
-boxes - create a pile of boxes, to represent items that block your way
-event - create an event scratch node, with text and braille
-Action - create an action scratch node, with text and braille
+<table border="1">
+	<tr>
+		<td>board</td><td>Create an 8 x 8 board for the activity</td>
+	</tr><tr>
+		<td>testTest</td><td>this will create a 2 x 2 test board</td>
+	</tr><tr>		
+		<td>tile</td><td>create one tile</td>
+	</tr><tr>
+		<td>cog</td><td>create a cog, to represent scrap metal</td>
+	</tr><tr>
+		<td>cross</td><td>create a cross, to represent bandits</td>
+	</tr><tr>
+		<td>boxes</td><td>create a pile of boxes, to represent items that block your way</td>
+	</tr><tr>
+		<td>event</td><td>create an event scratch node, with text and braille</td>
+	</tr><tr>
+		<td>Action</td><td>create an action scratch node, with text and braille</td>
+	</tr>
+</table>
+
 
 
 
