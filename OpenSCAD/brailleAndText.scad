@@ -1,17 +1,31 @@
+include <../../ViPteam2/OpenSCADLibs/StringTheory.scad>;
+
 /*
-Braille Module
+Based on Braille Module
 http://creativecommons.org/licenses/by/3.0/
 */
 
-
 // mm sizes from http://dots.physics.orst.edu/gs_layout.html
+
+/* 
+Updated by Steve Mullarkey 28.11.2015
+Now handles the follwoing;
+A-Z, a-z, 0-9 (includes numeric escape before each digit)
+, ; ' : - . ! " /
+( ) (closing parentheses is preceded by an escape character)
+~ represents the numeric esacpe character
+
+This will create a model which has text on one side and braille on the other.
+
+*/
+
 radius = 0.25;
 spacing = 2.5;
 startOffset = 3.75;
 distance = startOffset + spacing;
 
 plate_height = 10;
-plate_thickness = 10;   // was 2.
+plate_thickness = 10;   
 
 $fn = 10;
 
@@ -208,6 +222,144 @@ module braille_char(char) {
 			0,0,
 			0,0
 		], char);
+     } else if (char == "?") {
+		letter([
+			0,0,
+			1,0,
+			1,1
+		], char);
+     } else if (char == "~") {
+		letter([
+			0,1,
+			0,1,
+			1,1
+		], " ");
+     } else if (char == "1") {
+		letter([
+			1,0,
+			0,0,
+			0,0
+		], char);
+     } else if (char == "2") {
+		letter([
+			1,0,
+			1,0,
+			0,0
+		], char);
+     } else if (char == "3") {
+		letter([
+			1,1,
+			0,0,
+			0,0
+		], char);
+     } else if (char == "4") {
+		letter([
+			1,1,
+			0,1,
+			0,0
+		], char);
+     } else if (char == "5") {
+		letter([
+			1,0,
+			0,1,
+			0,0
+		], char);
+     } else if (char == "6") {
+		letter([
+			1,1,
+			1,0,
+			0,0
+		], char);
+     } else if (char == "7") {
+		letter([
+			1,1,
+			1,1,
+			0,0
+		], char);
+     } else if (char == "8") {
+		letter([
+			1,0,
+			1,1,
+			0,0
+		], char);
+     } else if (char == "9") {
+		letter([
+			0,1,
+			1,0,
+			0,0
+		], char);
+     } else if (char == "0") {
+		letter([
+			0,1,
+			1,1,
+			0,0
+		], char);
+     } else if (char == ",") {
+		letter([
+			0,0,
+			1,0,
+			0,0
+		], char); 
+      } else if (char == ";") {
+		letter([
+			0,0,
+			1,0,
+			1,0
+		], char); 
+     } else if (char == "'") {
+		letter([
+			0,0,
+			0,0,
+			1,0
+		], char); 
+     } else if (char == ":") {
+		letter([
+			0,0,
+			1,1,
+			0,0
+		], char); 
+     } else if (char == "-") {
+		letter([
+			0,0,
+			0,0,
+			1,1
+		], char); 
+     } else if (char == ".") {
+		letter([
+			0,0,
+			1,1,
+			0,1
+		], char); 
+     } else if (char == "!") {
+		letter([
+			0,0,
+			1,1,
+			1,0
+		], char); 
+     } else if (char == "\"") {
+		letter([
+			0,0,
+			0,1,
+			1,1
+		], char); 
+     } else if (char == "(") {
+		letter([
+			0,0,
+			1,1,
+			1,1
+		], char);
+     } else if (char == ")") {
+		letter([
+			0,0,
+			1,1,
+			1,1
+		], ")");
+     } else if (char == "/") {
+		letter([
+			0,1,
+			0,0,
+			1,0
+		], char); 
 	} else {
 		echo("Invalid Character: ", char);
 	}
@@ -233,22 +385,64 @@ module braille_str(chars) {
 
 function lenText(txt="Hi") = distance * len(txt);
 
+
+
+//--------------------------------------------
+// Add escape character before any digits 
+//--------------------------------------------
+function escapeDigits(string) =
+replace((
+    replace((
+        replace((
+          replace((
+             replace((
+                replace((
+                   replace((
+                      replace((
+                         replace((
+                            replace((
+                               replace(string, "0", "~0", ignore_case=false, regex=false)),
+                             "1", "~1", ignore_case=false, regex=false)),
+                             "2", "~2", ignore_case=false, regex=false)),
+                             "3", "~3", ignore_case=false, regex=false)),
+                             "4", "~4", ignore_case=false, regex=false)),
+                             "5", "~5", ignore_case=false, regex=false)),
+                             "6", "~6", ignore_case=false, regex=false)),
+                             "7", "~7", ignore_case=false, regex=false)),
+                             "8", "~8", ignore_case=false, regex=false)),                           
+                             "9", "~9", ignore_case=false, regex=false)),
+                             ")", "~)", ignore_case=false, regex=false);
+;
+
+
+
 module printTextAndBraille(textToPrint) {
-    blockLen = lenText(textToPrint);
-    union()
-    {
-        difference() {                      // remove second box from first
-            rotate([0,45,0]) {              // make it on its edge
-                braille_str((textToPrint)); // make a long box
-            }
-            translate([0, -3.25, -8]) {     // move in right place
-                cube(size = [14, (blockLen+8), 8]);
-            }
-        } 
-        translate([0.1, -3.1, -3]) {     // move in right place
-            cube(size = [14, (blockLen+6), 3]); 
-        }
-    }                                 
+    
+    escapedText = escapeDigits(textToPrint);
+    printEscapedTextAndBraille(escapedText);
 }
 
-printTextAndBraille("HELLO CalLUM");
+module printEscapedTextAndBraille(escapedText) {
+
+    blockLen = lenText(escapedText);
+    if (blockLen > 0) { 
+        union()
+        {
+            difference() {                 // remove second box from first
+                translate([0, 0, 1]) {
+                    rotate([0,45,0]) {     // make it on its edge
+                        braille_str((escapedText)); // make a long box
+                    }
+                }
+                translate([0, -3.25, -8]) {     // move in right place
+                    cube(size = [14, (blockLen+8), 8]);  // was 8
+                }
+            } 
+            translate([0.1, -3.1, 0]) {     // move in right place
+                cube(size = [14, (blockLen+6), 1]);  // was 14, n, 3
+            }
+        }
+    }        
+}
+
+//printTextAndBraille("AbCdEfGhIjKlMnOpQrStUvWxYz0123456789,.;:'\"!?/()");
