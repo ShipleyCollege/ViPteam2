@@ -12,8 +12,8 @@ BPValue - This template is used to create a 3D model containing text on one side
 
 <table border="1">
 	<tr>
-		<td>printValue(text);</td><td>this will print the text parameter as Braille and text.<td>
-	</td>
+		<td>printValue(text);</td><td>this will print the text parameter as Braille and text.</td>
+	</tr>
 </table>
 
 BPNode - This template is used to create 3D model of a Blueprint node from Unreal Engine 4's Blueprint editor.
