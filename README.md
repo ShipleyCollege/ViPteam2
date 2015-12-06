@@ -12,6 +12,7 @@ AbCdEfGhIjKlMnOpQrStUvWxYz0123456789,.;:'\"!?/()
 <table border="1">
 	<tr>
 		<td>printTextAndBraille(text);</td><td>This will print the text parameter as Braille and text, including numberic escape sequences, as required.</td>
+	</tr><tr>
 		<td>printEscappedTextAndBraille(text);</td><td>this will print the text parameter as Braille and text, with no escape characters added.</td>
 	</tr>
 </table>
