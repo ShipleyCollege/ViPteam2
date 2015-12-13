@@ -67,6 +67,8 @@ These nodes can be created by hand or by exporting a flowchart from LucidChart.
 		<td>FCProcess(text)</td><td>his will create a process box, with the text printed in text and braille.</td>
 	</tr><tr>
 		<td>FCDecision(text)</td><td>This will create a decision diamond, with the text printed in text and braille.</td>
+	</tr><tr>
+		<td>JoinConnectors()</td><td>This will create a connector block, where wires can be joined together.</td>
 	</tr>
 </table>
 
