@@ -22,6 +22,16 @@ AbCdEfGhIjKlMnOpQrStUvWxYz0123456789,.;:'\"!?/()
 These nodes can be created by hand or by the Python script developed by team1. This script builds the models from the Blueprint editors clipboard.
 
 
+BPVariable - This template is used to create a 3D model representing a BluePrint variable get or set node, containing text for the variable name on one side and Braille on the other.
+
+<table border="1">
+	<tr>
+		<td>getVariable(varableName);</td><td>this will print a get variable node with the name as Braille and text.</td>
+	</tr><tr>
+		<td>setVariable(varableName);</td><td>this will print a set variable node with the name as Braille and text.</td>
+	</tr>
+</table>
+
 BPValue - This template is used to create a 3D model containing text on one side and Braille on the other.
 
 <table border="1">
