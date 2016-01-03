@@ -3,7 +3,7 @@ use <Pin.scad>;
 
 // These are to be overridden in the generated file
 // ... they are used to calculate size of base.
-numLines = 5;
+numLines = 1;  // was 5
 longestLine = "abcdefghijk";
 
 // Thickness of base
@@ -18,11 +18,11 @@ baseWidth = 35 + len(longestLine) * 6.25;   // was 40
 //baseWidth = 100;
 baseDepth = (numLines - 1) * 20 + 15;
 // depth of top section
-reliefDepth = 14;
+reliefDepth = 15;
 
 // Offsets for each line
-line1 = 0;
-line2 = line1 + 25;
+line1 = 7;
+line2 = line1 + 18;
 line3 = line2 + 20;
 line4 = line3 + 20;
 line5 = line4 + 20;
@@ -41,7 +41,7 @@ right = baseWidth - 10;
 module drawBase(title) { 
     cube([baseDepth,baseWidth,bedHeight]);      // Base
     cube([reliefDepth,baseWidth,reliefHeight]); // Top
-    translate([line1, (baseWidth/2 - lenText(title)/2), reliefHeight])
+    translate([0, (baseWidth/2 - lenText(title)/2), reliefHeight])
         printTextAndBraille(title);             // Title
 }
 
