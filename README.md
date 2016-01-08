@@ -8,12 +8,12 @@ Creation of a SET node:
 Type: SET
 Value: Hello Count
 
-Look for specific methods in the documentation that fit the needs of your node.
-Execution pins : executePin(line, left), executePin(line, right)
-Print text as braille and text : printValue("Set"), printValue("Hello Count")
-Create data pin : leftPin(line, text)
+Look for specific methods in the documentation that fit the needs of your node.</br>
+Execution pins : executePin(line, left), executePin(line, right)</br>
+Print text as braille and text : printValue("Set"), printValue("Hello Count")</br>
+Create data pin : leftPin(line, text)</br>
 
-Both the execution and the data pins determine the position of the text pertaining to them.
+Both the execution and the data pins determine the position of the text pertaining to them.</br></br>
 
 
 To date there are the following templates available;
