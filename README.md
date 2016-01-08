@@ -9,8 +9,8 @@ Type: SET</br>
 Value: Hello Count</br></br>
 
 Look for specific methods in the documentation that fit the needs of your node.</br>
-Execution pins : executePin(line, left), executePin(line, right)</br>
-Print text as braille and text : printValue("Set"), printValue("Hello Count")</br>
+Execution pins : executePinLeft(line), executePinRight(line)</br>
+Print text as braille and text : drawBase("Set"), drawBase("Hello Count")</br>
 Create data pin : leftPin(line, text)</br>
 
 Both the execution and the data pins determine the position of the text pertaining to them.</br></br>
@@ -66,8 +66,6 @@ BPNode - This template is used to create 3D model of a Blueprint node from Unrea
 		<td>drawBase(title)</td><td>This will create the base and add the given title at the top on the model</td>
 	</tr><tr>
 		<td colspan="2">in the following, line is the literal 'line1, line2, line3 etc' and left | right indicates if the pin is on the left or right of the node.</td>
-	</tr><tr>
-		<td>executePin(line, left | right)</td><td>created an execute pin, with hole for a connector to be inserted.</td>
 	</tr><tr>
 		<td>executePinRightWithText(line, text)</td><td>create an execution pin, with hole.</td>
 	</tr><tr>
