@@ -4,9 +4,9 @@ Merge model data with OpenSCAD templates to create 3D models
 <h1>How To Use</h1>
 Input your data into the methods available to create what node you need:
 
-Creation of a SET node:
-Type: SET
-Value: Hello Count
+Creation of a SET node:</br>
+Type: SET</br>
+Value: Hello Count</br></br>
 
 Look for specific methods in the documentation that fit the needs of your node.</br>
 Execution pins : executePin(line, left), executePin(line, right)</br>
