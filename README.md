@@ -65,8 +65,6 @@ BPNode - This template is used to create 3D model of a Blueprint node from Unrea
 	</tr><tr>
 		<td>drawBase(title)</td><td>This will create the base and add the given title at the top on the model</td>
 	</tr><tr>
-		<td colspan="2">in the following, line is the literal 'line1, line2, line3 etc' and left | right indicates if the pin is on the left or right of the node.</td>
-	</tr><tr>
 		<td>executePinRightWithText(line, text)</td><td>create an execution pin, with hole.</td>
 	</tr><tr>
 		<td>executePinLeftWithText(line, text)</td><td>create an execution pin, with hole.</td>
