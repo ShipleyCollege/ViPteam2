@@ -1,5 +1,20 @@
-# team2
+# Team 2
 Merge model data with OpenSCAD templates to create 3D models
+
+<h1>How To Use</h1>
+Input your data into the methods available to create what node you need:
+
+Creation of a SET node:
+Type: SET
+Value: Hello Count
+
+Look for specific methods in the documentation that fit the needs of your node.
+Execution pins : executePin(line, left), executePin(line, right)
+Print text as braille and text : printValue("Set"), printValue("Hello Count")
+Create data pin : leftPin(line, text)
+
+Both the execution and the data pins determine the position of the text pertaining to them.
+
 
 To date there are the following templates available;
 
