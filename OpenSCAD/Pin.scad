@@ -8,7 +8,7 @@ module pin(px, py, pz) {
         difference() {
             cylinder(h=pinHeight, r=2.5, $fn=16);
             translate([2, 2, 1]);
-                cylinder(h=pinHeight, r1=0.5, r2=0.75, $fn=16);
+                cylinder(h=pinHeight, r2=0.5, r1=0.75, $fn=16);
         }
     }   
 }

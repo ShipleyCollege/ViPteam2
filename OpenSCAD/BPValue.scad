@@ -14,7 +14,7 @@ module printValue(txt) {
             printTextAndBraille(txt); 
         }       
         translate([baseDepth / 2, baseWidth - 5, 0]) {
-            cylinder(h=bedHeight, r1=2.75, r2=2.5, $fn=16); 
+            cylinder(h=bedHeight, r2=2.75, r1=2.5, $fn=16); 
         }       
     }
 }

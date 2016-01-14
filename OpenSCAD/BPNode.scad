@@ -7,7 +7,7 @@ numLines = 1;  // was 5
 longestLine = "abcdefghijk";
 
 // Thickness of base
-bedHeight = 0.6;      // was 4
+bedHeight = 1.2;      // was 4
 // Thickness of top section
 reliefHeight = 1.5;   // was 6
 // Height of pins

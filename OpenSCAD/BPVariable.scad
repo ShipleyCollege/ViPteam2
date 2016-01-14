@@ -4,23 +4,26 @@ include <BPNode.scad>;
 // Call module to draw get variable                      //
 // ----------------------------------------------------- //
 module getVariable(variableName) {
-    drawBase();
-    y = lenText(variableName) + 20 ;  
-    pin(line1, right, 0);
-    printText(line1, right - y, variableName);
+    y = lenText(variableName) + 22 ;  
+    cube([baseDepth, y, bedHeight]);  // fix base depth        
+    pin(line1,  y - 5, 0);
+    printText(line1,  -2, variableName);
 }
 
 // ----------------------------------------------------- //
 // Call module to draw set variable                      //
 // ----------------------------------------------------- //
 module setVariable(variableName) {
-    drawBase("Set");
-    cube([baseDepth*2.2,baseWidth,bedHeight]);  // fix base depth    
-    y = lenText(variableName) + 20 ; 
+    y = lenText(variableName) + 22 ; 
+    cube([baseDepth,y,bedHeight]);      // Base
+    cube([reliefDepth,y,reliefHeight]); // Top
+    translate([0, (y/2 - lenText("Set")/2), reliefHeight])
+        printTextAndBraille("Set");             // Title    
+    cube([baseDepth*2.2, y ,bedHeight]);  // fix base depth    
     executePin(line1, left); 
-    executePin(line1, right); 
+    executePin(line1, y - 10); 
     pin(line2, left, 0);
-    printText(line2, right - y, variableName);
+    printText(line2, 5 , variableName);
 }
 
 // ------------------------------------------------------------- //
@@ -34,4 +37,6 @@ module setVariable(variableName) {
 
 // include <BPVariable.scad>; 
 //getVariable("Hello Count");
+//getVariable("This is a very long name");
 //setVariable("Hello Count");
+//setVariable("This is a very long name");
