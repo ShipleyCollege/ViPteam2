@@ -1,3 +1,3 @@
-use <../OpenSCAD/TextAndBraille.scad>
+use <../OpenSCAD/TextAndBrailleLegoBlock.scad>
 
-brickNText("Value");
+brickAndText("Return Value");
